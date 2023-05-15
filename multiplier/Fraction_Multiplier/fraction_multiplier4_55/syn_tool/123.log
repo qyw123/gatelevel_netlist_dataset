@@ -1,0 +1,291 @@
+
+                        DC Professional (TM)
+                           DC Expert (TM)
+                            DC Ultra (TM)
+                       FloorPlan Manager (TM)
+                          HDL Compiler (TM)
+                         VHDL Compiler (TM)
+                        Library Compiler (TM)
+                      DesignWare Developer (TM)
+                          DFT Compiler (TM)
+                            BSD Compiler
+                         Power Compiler (TM)
+
+           Version Z-2007.03-SP2 for linux -- Jun 01, 2007
+              Copyright (c) 1988-2007 by Synopsys, Inc.
+                         ALL RIGHTS RESERVED
+
+This software and the associated documentation are confidential and 
+proprietary to Synopsys, Inc. Your use or disclosure of this software 
+is subject to the terms and conditions of a written license agreement 
+between you, or your company, and Synopsys, Inc.
+
+The above trademark notice does not imply that you are licensed to use 
+all of the listed products. You are licensed to use only those products 
+for which you have lawfully obtained a valid license key.
+
+Initializing...
+Starting shell in XG mode...
+Initializing gui preferences from file  /home/vlsi/.synopsys_dv_prefs.tcl
+#
+# NOTE: cHANGE DESIGN NAME TO YOUR OWN
+set Design fraction_multiplier4
+fraction_multiplier4
+################################################################
+set num 55
+55
+set verilogout_no_tri true
+true
+set verilogout_single_bit false
+false
+set verilogout_show_unconnected_pins true
+true
+set fsm_auto_inferring true
+true
+set gen_show_created_symbols true
+true
+source -echo "./synopsys_dc.setup"
+set synthetic_library {dw_foundation.sldb}
+set target_library {gtech.db}
+set link_library "* typical_1v2c25.db dw_foundation.sldb dw01.sldb dw02.sldb \				dw03.sldb dw04.sldb dw05.sldb dw06.sldb dw07.sldb"
+set cache_write
+set cache_read $cache_write
+   set search_path "/CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn		/CAD/synopsys/DC_Z-2007.03-SP2/dw/syn_ver		/CAD/synopsys/DC_Z-2007.03-SP2/dw/sim_ver		/home/vlsi_013/Library/aci/sc-x/symbols/synopsys		/home/vlsi_013/Library/aci/sc-x/synopsys		/CAD/synopsys/DC_Z-2007.03-SP2/libraries    " 
+/CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn  /CAD/synopsys/DC_Z-2007.03-SP2/dw/syn_ver  /CAD/synopsys/DC_Z-2007.03-SP2/dw/sim_ver  /home/vlsi_013/Library/aci/sc-x/symbols/synopsys  /home/vlsi_013/Library/aci/sc-x/synopsys  /CAD/synopsys/DC_Z-2007.03-SP2/libraries    
+source -echo "./filelist.tcl"
+analyze -f SVERILOG -library DEFAULT ../verilog/fraction_multiplier4.v
+Running PRESTO HDLC
+Compiling source file ../verilog/fraction_multiplier4.v
+Warning:  ../verilog/fraction_multiplier4.v:18: In initial block, only $power and $retain are supported, other statements are ignored. (VER-192)
+Presto compilation completed successfully.
+Loading db file '/home/vlsi_013/Library/aci/sc-x/synopsys/typical_1v2c25.db'
+Loading db file '/CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw_foundation.sldb'
+Loading db file '/CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw01.sldb'
+Loading db file '/CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw02.sldb'
+Loading db file '/CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw03.sldb'
+Loading db file '/CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw04.sldb'
+Loading db file '/CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw05.sldb'
+Loading db file '/CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw06.sldb'
+Loading db file '/CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw07.sldb'
+1
+elaborate  $Design
+Loading db file '/CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/gtech.db'
+Loading db file '/CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/standard.sldb'
+  Loading link library 'typical_1v2c25'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 18 in file
+	'../verilog/fraction_multiplier4.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            20            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine fraction_multiplier4 line 18 in file
+		'../verilog/fraction_multiplier4.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        A_reg        | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|        A_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        B_reg        | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|      State_reg      | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'fraction_multiplier4'.
+1
+################################################################
+set_wire_load_mode segmented
+1
+link
+
+  Linking design 'fraction_multiplier4'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  fraction_multiplier4        /mnt/hgfs/a-sharefile/mywork/multiplier/Fraction_Multiplier/fraction_multiplier4_55/syn_tool/fraction_multiplier4.db
+  typical_1v2c25 (library)    /home/vlsi_013/Library/aci/sc-x/synopsys/typical_1v2c25.db
+  dw_foundation.sldb (library) /CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw_foundation.sldb
+  dw01.sldb (library)         /CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw01.sldb
+  dw02.sldb (library)         /CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw02.sldb
+  dw03.sldb (library)         /CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw03.sldb
+  dw04.sldb (library)         /CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw04.sldb
+  dw05.sldb (library)         /CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw05.sldb
+  dw06.sldb (library)         /CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw06.sldb
+  dw07.sldb (library)         /CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn/dw07.sldb
+
+1
+check_design > ./check_design/${dc_date}.txt
+Error: can't read "dc_date": no such variable
+	Use error_info for more info. (CMD-013)
+current_design  $Design
+Current design is 'fraction_multiplier4'.
+{fraction_multiplier4}
+source -echo "./synopsys.sdc"
+# set dont use
+set_dont_use {gtech/GTECH_MAJ23 gtech/GTECH_MUXI2  gtech/GTECH_ADD_ABC gtech/GTECH_OR_NOT}
+#set_units -time ns -resistance kohm -capacitance pF -voltage V -current mA
+#set_units -time ns  -capacitance pF -voltage V -current mA
+create_clock -name "clk"     -period 50.000 -waveform {0.0 25} [get_ports clk]
+Warning: Can't find port 'clk' in design 'fraction_multiplier4'. (UID-95)
+Error: Value for list 'source_objects' must have 1 elements. (CMD-036)
+set_dont_touch_network [get_clocks {clk}]
+Warning: Can't find clock 'clk' in design 'fraction_multiplier4'. (UID-95)
+Error: Value for list '<object_list>' must have 1 elements. (CMD-036)
+set_clock_transition 0.2 [get_clocks {clk}]
+Warning: Can't find clock 'clk' in design 'fraction_multiplier4'. (UID-95)
+Error: Value for list 'clock_list' must have 1 elements. (CMD-036)
+set_clock_uncertainty 0.4 -hold [get_clocks {clk}]
+Warning: Can't find clock 'clk' in design 'fraction_multiplier4'. (UID-95)
+Error: Value for list 'object_list' must have 1 elements. (CMD-036)
+# related of setup time   clock_unceritainty=clock_skew+clock_jitter
+set_load 0.1 [all_inputs]
+set_input_delay 2 -clock clk [all_inputs]
+Warning: Can't find clock 'clk' in design 'fraction_multiplier4'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+set_output_delay 2 -clock clk [all_outputs]
+Warning: Can't find clock 'clk' in design 'fraction_multiplier4'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+#set_switching_activity -static_probability 0.5 -toggle_rate 0.01
+current_design  $Design
+Current design is 'fraction_multiplier4'.
+{fraction_multiplier4}
+#set_dw_prefer_mc_inside true
+#set_compile_seqmap_propagate_constants true
+# set_max_area 0.0
+# set_max_dynamic_power_ topword 500.0
+dc_allocate_budgets -levels 1 -mode rtl -write_script -no_interblock_logic -file_format_spec design_budget%D.rtl.step${dc_date}.con
+Error: can't read "dc_date": no such variable
+	Use error_info for more info. (CMD-013)
+set compile_auto_ungroup_delay_num_cells 99999999
+99999999
+set compile_auto_ungroup_count_leaf_cells true
+true
+set compile_auto_ungroup_overwrite_wlm true
+true
+set verilogout_no_tri true
+true
+#################################################################
+#  set_dont_touch U_multiply_0
+current_design  $Design
+Current design is 'fraction_multiplier4'.
+{fraction_multiplier4}
+# set_dont_touch U_power_ topword_0 
+#set_dont_touch enc_1 
+ungroup -flatten -all -force 
+Warning: Design has no hierarchy.  No cells can be ungrouped. (UID-228)
+0
+# ungroup -start_level 2 -all
+#set_cost_prioritty -delay
+set_critical_range 0.1  $Design
+1
+remove_unconnected_ports [get_cells -hier * ] -blast
+1
+compile -ungroup_all -exact_map
+Warning: The cache_read directory ./cache is not readable.  (SYNOPT-10)
+Warning: The cache_write directory ./cache is not writable.
+So, no cache elements can be written.   (SYNOPT-11)
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library       |      Version       | Available |
+============================================================================
+| Basic DW Building Blocks                | Z-2007.03-DWBB_0706 |    *     |
+| Licensed DW Building Blocks             | Z-2007.03-DWBB_0706 |    *     |
+============================================================================
+
+
+Information: There are 2 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Warning: The trip points for the library named typical_1v2c25 differ from those in the library named gtech. (TIM-164)
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'fraction_multiplier4'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'fraction_multiplier4' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'fraction_multiplier4'
+  Mapping 'fraction_multiplier4'
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02       0.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+    0:00:02       0.0      0.00       0.0       0.0                          
+Loading db file '/home/vlsi_013/Library/aci/sc-x/synopsys/typical_1v2c25.db'
+
+  Optimization Complete
+  ---------------------
+1
+# compile_ultra -no_autoungroup -timing_high_effort_script
+set compile_seqmap_propagate_high_effort true
+true
+set compile_seqmap_propagate_constants_size_only true
+true
+set_fix_multiple_port_nets -all -buffer_constants -feedthroughs
+1
+change_names -rule verilog -hierarchy
+1
+set verilogout_show_unconnected_pins false
+false
+check_design
+Warning: In design 'fraction_multiplier4', net 'A_3_' driven by pin 'A_reg_3_/Q' has no loads. (LINT-2)
+Warning: In design 'fraction_multiplier4', net 'State[0]' driven by pin 'State_reg_0_/Q' has no loads. (LINT-2)
+Warning: In design 'fraction_multiplier4', net 'State[1]' driven by pin 'State_reg_1_/Q' has no loads. (LINT-2)
+Warning: In design 'fraction_multiplier4', net 'State[2]' driven by pin 'State_reg_2_/Q' has no loads. (LINT-2)
+1
+################################################################
+# write_report
+write -format verilog -hierarchy $Design -output ../result/${Design}_aftercom_${num}.v
+Writing verilog file '/mnt/hgfs/a-sharefile/mywork/multiplier/Fraction_Multiplier/fraction_multiplier4_55/result/fraction_multiplier4_aftercom_55.v'.
+1
+exit
+
+Memory usage for this session 74 Mbytes.
+CPU usage for this session 3 seconds.
+
+Thank you...

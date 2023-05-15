@@ -1,0 +1,63 @@
+
+module CRC32 ( crcIn, data, crcOut );
+  input [31:0] crcIn;
+  input [7:0] data;
+  output [31:0] crcOut;
+  wire   n22, n23, n24, n25, n26, n27, n28, n29, n30, n31, n32, n33, n34, n35,
+         n36, n37, n38, n39, n40, n41, n42;
+
+  GTECH_XOR2 U54 ( .A(crcIn[17]), .B(n22), .Z(crcOut[9]) );
+  GTECH_ADD_ABC U55 ( .A(crcIn[16]), .B(n23), .C(n24), .S(crcOut[8]) );
+  GTECH_ADD_ABC U56 ( .A(crcIn[15]), .B(n25), .C(n26), .S(crcOut[7]) );
+  GTECH_XOR2 U57 ( .A(crcIn[14]), .B(n27), .Z(crcOut[6]) );
+  GTECH_ADD_ABC U58 ( .A(crcIn[13]), .B(n28), .C(crcOut[31]), .S(crcOut[5]) );
+  GTECH_ADD_ABC U59 ( .A(crcIn[12]), .B(n25), .C(n29), .S(crcOut[4]) );
+  GTECH_ADD_ABC U60 ( .A(crcIn[11]), .B(n30), .C(n31), .S(crcOut[3]) );
+  GTECH_ADD_ABC U61 ( .A(crcIn[10]), .B(n32), .C(n33), .S(crcOut[2]) );
+  GTECH_XOR2 U62 ( .A(n26), .B(crcOut[30]), .Z(crcOut[29]) );
+  GTECH_XOR2 U63 ( .A(n25), .B(n27), .Z(crcOut[28]) );
+  GTECH_XOR2 U64 ( .A(n34), .B(n35), .Z(n25) );
+  GTECH_ADD_ABC U65 ( .A(n27), .B(n36), .C(crcOut[31]), .S(crcOut[27]) );
+  GTECH_XOR2 U66 ( .A(n24), .B(n22), .Z(crcOut[31]) );
+  GTECH_ADD_ABC U67 ( .A(n32), .B(n29), .C(crcOut[30]), .S(crcOut[26]) );
+  GTECH_XOR2 U68 ( .A(n33), .B(n23), .Z(crcOut[30]) );
+  GTECH_XOR2 U69 ( .A(n33), .B(n37), .Z(crcOut[25]) );
+  GTECH_XOR2 U70 ( .A(n34), .B(n38), .Z(crcOut[24]) );
+  GTECH_XOR2 U71 ( .A(crcIn[31]), .B(n39), .Z(crcOut[23]) );
+  GTECH_XOR2 U72 ( .A(crcIn[30]), .B(n37), .Z(crcOut[22]) );
+  GTECH_ADD_ABC U73 ( .A(n35), .B(n26), .C(n29), .S(n37) );
+  GTECH_XOR2 U74 ( .A(crcIn[29]), .B(n38), .Z(crcOut[21]) );
+  GTECH_ADD_ABC U75 ( .A(n22), .B(n27), .C(n30), .S(n38) );
+  GTECH_XOR2 U76 ( .A(crcIn[28]), .B(n39), .Z(crcOut[20]) );
+  GTECH_XOR2 U77 ( .A(n28), .B(n23), .Z(n39) );
+  GTECH_XOR2 U78 ( .A(n36), .B(n32), .Z(n28) );
+  GTECH_ADD_ABC U79 ( .A(crcIn[9]), .B(n34), .C(n36), .S(crcOut[1]) );
+  GTECH_XOR4 U80 ( .A(n29), .B(n31), .C(crcIn[27]), .D(n23), .Z(crcOut[19]) );
+  GTECH_XOR2 U81 ( .A(n35), .B(n22), .Z(n23) );
+  GTECH_XOR2 U82 ( .A(n26), .B(n24), .Z(n31) );
+  GTECH_ADD_ABC U83 ( .A(crcIn[26]), .B(n40), .C(n41), .S(crcOut[18]) );
+  GTECH_ADD_ABC U84 ( .A(crcIn[25]), .B(n36), .C(n40), .S(crcOut[17]) );
+  GTECH_XOR2 U85 ( .A(n33), .B(n27), .Z(n40) );
+  GTECH_XOR2 U86 ( .A(n32), .B(n26), .Z(n27) );
+  GTECH_ADD_ABC U87 ( .A(crcIn[24]), .B(n29), .C(n42), .S(crcOut[16]) );
+  GTECH_ADD_ABC U88 ( .A(crcIn[23]), .B(n22), .C(n29), .S(crcOut[15]) );
+  GTECH_XOR2 U89 ( .A(n30), .B(n36), .Z(n29) );
+  GTECH_XOR2 U90 ( .A(crcIn[7]), .B(data[7]), .Z(n22) );
+  GTECH_ADD_ABC U91 ( .A(crcIn[22]), .B(n24), .C(n41), .S(crcOut[14]) );
+  GTECH_XOR2 U92 ( .A(n30), .B(n35), .Z(n41) );
+  GTECH_XOR2 U93 ( .A(crcIn[6]), .B(data[6]), .Z(n35) );
+  GTECH_ADD_ABC U94 ( .A(crcIn[21]), .B(n26), .C(n33), .S(crcOut[13]) );
+  GTECH_XOR2 U95 ( .A(n34), .B(n24), .Z(n33) );
+  GTECH_XOR2 U96 ( .A(crcIn[1]), .B(data[1]), .Z(n24) );
+  GTECH_XOR2 U97 ( .A(crcIn[5]), .B(data[5]), .Z(n26) );
+  GTECH_XOR2 U98 ( .A(crcIn[20]), .B(n42), .Z(crcOut[12]) );
+  GTECH_XOR2 U99 ( .A(n32), .B(n34), .Z(n42) );
+  GTECH_XOR2 U100 ( .A(crcIn[0]), .B(data[0]), .Z(n34) );
+  GTECH_XOR2 U101 ( .A(crcIn[4]), .B(data[4]), .Z(n32) );
+  GTECH_XOR2 U102 ( .A(crcIn[19]), .B(n36), .Z(crcOut[11]) );
+  GTECH_XOR2 U103 ( .A(crcIn[3]), .B(data[3]), .Z(n36) );
+  GTECH_XOR2 U104 ( .A(crcIn[18]), .B(n30), .Z(crcOut[10]) );
+  GTECH_XOR2 U105 ( .A(crcIn[8]), .B(n30), .Z(crcOut[0]) );
+  GTECH_XOR2 U106 ( .A(crcIn[2]), .B(data[2]), .Z(n30) );
+endmodule
+

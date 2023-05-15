@@ -1,0 +1,156 @@
+
+module carry_select_adder16 ( a, b, cin, cout, sum );
+  input [15:0] a;
+  input [15:0] b;
+  output [15:0] sum;
+  input cin;
+  output cout;
+  wire   n279, n280, n281, n282, n283, n284, n285, n286, n287, n288, n289,
+         n290, n291, n292, n293, n294, n295, n296, n297, n298, n299, n300,
+         n301, n302, n303, n304, n305, n306, n307, n308, n309, n310, n311,
+         n312, n313, n314, n315, n316, n317, n318, n319, n320, n321, n322,
+         n323, n324, n325, n326, n327, n328, n329, n330, n331, n332, n333,
+         n334, n335, n336, n337, n338, n339, n340, n341, n342, n343, n344,
+         n345, n346, n347, n348, n349, n350, n351, n352, n353, n354, n355,
+         n356, n357, n358, n359, n360, n361, n362, n363, n364, n365, n366,
+         n367, n368, n369, n370, n371, n372, n373, n374, n375, n376, n377,
+         n378, n379, n380, n381, n382, n383, n384, n385, n386, n387, n388,
+         n389, n390, n391, n392, n393, n394, n395, n396;
+
+  GTECH_MUX2 U140 ( .A(n279), .B(n280), .S(n281), .Z(sum[9]) );
+  GTECH_AOI22 U141 ( .A(a[8]), .B(b[8]), .C(n282), .D(n283), .Z(n281) );
+  GTECH_XOR2 U142 ( .A(b[9]), .B(a[9]), .Z(n280) );
+  GTECH_NAND2 U143 ( .A(n284), .B(n285), .Z(n279) );
+  GTECH_XOR2 U144 ( .A(n283), .B(n286), .Z(sum[8]) );
+  GTECH_MUX2 U145 ( .A(n287), .B(n288), .S(n289), .Z(sum[7]) );
+  GTECH_XNOR2 U146 ( .A(n290), .B(n291), .Z(n288) );
+  GTECH_XOR2 U147 ( .A(n290), .B(n292), .Z(n287) );
+  GTECH_AND2 U148 ( .A(n293), .B(n294), .Z(n292) );
+  GTECH_OAI21 U149 ( .A(b[6]), .B(a[6]), .C(n295), .Z(n294) );
+  GTECH_XNOR2 U150 ( .A(a[7]), .B(b[7]), .Z(n290) );
+  GTECH_OAI21 U151 ( .A(n296), .B(n293), .C(n297), .Z(sum[6]) );
+  GTECH_MUX2 U152 ( .A(n298), .B(n299), .S(b[6]), .Z(n297) );
+  GTECH_OR_NOT U153 ( .A(a[6]), .B(n296), .Z(n299) );
+  GTECH_XOR2 U154 ( .A(a[6]), .B(n296), .Z(n298) );
+  GTECH_AOI21 U155 ( .A(n289), .B(n300), .C(n295), .Z(n296) );
+  GTECH_AOI21 U156 ( .A(n301), .B(n302), .C(n303), .Z(n295) );
+  GTECH_MUX2 U157 ( .A(n304), .B(n305), .S(n306), .Z(sum[5]) );
+  GTECH_OA21 U158 ( .A(a[5]), .B(b[5]), .C(n301), .Z(n306) );
+  GTECH_AO22 U159 ( .A(n307), .B(n308), .C(n302), .D(n309), .Z(n305) );
+  GTECH_OR_NOT U160 ( .A(n307), .B(a[4]), .Z(n302) );
+  GTECH_OAI21 U161 ( .A(n309), .B(n308), .C(n310), .Z(n304) );
+  GTECH_OAI21 U162 ( .A(a[4]), .B(n289), .C(b[4]), .Z(n310) );
+  GTECH_XNOR2 U163 ( .A(n311), .B(n309), .Z(sum[4]) );
+  GTECH_MUX2 U164 ( .A(n312), .B(n313), .S(n314), .Z(sum[3]) );
+  GTECH_XNOR2 U165 ( .A(n315), .B(n316), .Z(n313) );
+  GTECH_AND2 U166 ( .A(n317), .B(n318), .Z(n316) );
+  GTECH_OAI21 U167 ( .A(b[2]), .B(a[2]), .C(n319), .Z(n318) );
+  GTECH_NOT U168 ( .A(n320), .Z(n319) );
+  GTECH_XNOR2 U169 ( .A(n315), .B(n321), .Z(n312) );
+  GTECH_XOR2 U170 ( .A(a[3]), .B(b[3]), .Z(n315) );
+  GTECH_MUX2 U171 ( .A(n322), .B(n323), .S(cin), .Z(sum[2]) );
+  GTECH_MUX2 U172 ( .A(n324), .B(n325), .S(n326), .Z(n323) );
+  GTECH_MUX2 U173 ( .A(n324), .B(n325), .S(n320), .Z(n322) );
+  GTECH_AOI21 U174 ( .A(n327), .B(n328), .C(n329), .Z(n320) );
+  GTECH_XOR2 U175 ( .A(a[2]), .B(b[2]), .Z(n325) );
+  GTECH_OAI21 U176 ( .A(b[2]), .B(a[2]), .C(n317), .Z(n324) );
+  GTECH_MUX2 U177 ( .A(n330), .B(n331), .S(n332), .Z(sum[1]) );
+  GTECH_AND_NOT U178 ( .A(n327), .B(n329), .Z(n332) );
+  GTECH_OAI21 U179 ( .A(cin), .B(n328), .C(n333), .Z(n331) );
+  GTECH_OAI21 U180 ( .A(n334), .B(n314), .C(n335), .Z(n330) );
+  GTECH_NOT U181 ( .A(n328), .Z(n335) );
+  GTECH_NOT U182 ( .A(cin), .Z(n314) );
+  GTECH_MUX2 U183 ( .A(n336), .B(n337), .S(n338), .Z(sum[15]) );
+  GTECH_XNOR2 U184 ( .A(n339), .B(n340), .Z(n337) );
+  GTECH_XOR2 U185 ( .A(n339), .B(n341), .Z(n336) );
+  GTECH_AND2 U186 ( .A(n342), .B(n343), .Z(n341) );
+  GTECH_OAI21 U187 ( .A(b[14]), .B(a[14]), .C(n344), .Z(n342) );
+  GTECH_XNOR2 U188 ( .A(a[15]), .B(b[15]), .Z(n339) );
+  GTECH_OAI21 U189 ( .A(n345), .B(n343), .C(n346), .Z(sum[14]) );
+  GTECH_MUX2 U190 ( .A(n347), .B(n348), .S(b[14]), .Z(n346) );
+  GTECH_OR_NOT U191 ( .A(a[14]), .B(n345), .Z(n348) );
+  GTECH_XOR2 U192 ( .A(a[14]), .B(n345), .Z(n347) );
+  GTECH_AOI21 U193 ( .A(n349), .B(n338), .C(n344), .Z(n345) );
+  GTECH_AOI21 U194 ( .A(n350), .B(n351), .C(n352), .Z(n344) );
+  GTECH_MUX2 U195 ( .A(n353), .B(n354), .S(n338), .Z(sum[13]) );
+  GTECH_XNOR2 U196 ( .A(n355), .B(n356), .Z(n354) );
+  GTECH_XNOR2 U197 ( .A(n356), .B(n351), .Z(n353) );
+  GTECH_OA21 U198 ( .A(a[13]), .B(b[13]), .C(n350), .Z(n356) );
+  GTECH_OR_NOT U199 ( .A(n357), .B(n358), .Z(sum[12]) );
+  GTECH_AOI21 U200 ( .A(n351), .B(n359), .C(n360), .Z(n357) );
+  GTECH_MUX2 U201 ( .A(n361), .B(n362), .S(n283), .Z(sum[11]) );
+  GTECH_XNOR2 U202 ( .A(n363), .B(n364), .Z(n362) );
+  GTECH_XOR2 U203 ( .A(n363), .B(n365), .Z(n361) );
+  GTECH_AND2 U204 ( .A(n366), .B(n367), .Z(n365) );
+  GTECH_OAI21 U205 ( .A(b[10]), .B(a[10]), .C(n368), .Z(n367) );
+  GTECH_XNOR2 U206 ( .A(a[11]), .B(b[11]), .Z(n363) );
+  GTECH_OAI21 U207 ( .A(n369), .B(n366), .C(n370), .Z(sum[10]) );
+  GTECH_MUX2 U208 ( .A(n371), .B(n372), .S(b[10]), .Z(n370) );
+  GTECH_OR_NOT U209 ( .A(a[10]), .B(n369), .Z(n372) );
+  GTECH_XOR2 U210 ( .A(a[10]), .B(n369), .Z(n371) );
+  GTECH_AOI21 U211 ( .A(n373), .B(n283), .C(n368), .Z(n369) );
+  GTECH_NAND2 U212 ( .A(n374), .B(n285), .Z(n368) );
+  GTECH_NAND3 U213 ( .A(a[8]), .B(n284), .C(b[8]), .Z(n374) );
+  GTECH_OR_NOT U214 ( .A(n375), .B(n376), .Z(sum[0]) );
+  GTECH_OAI21 U215 ( .A(n328), .B(n334), .C(cin), .Z(n376) );
+  GTECH_OAI21 U216 ( .A(n377), .B(n360), .C(n358), .Z(cout) );
+  GTECH_NAND3 U217 ( .A(n359), .B(n351), .C(n360), .Z(n358) );
+  GTECH_NAND2 U218 ( .A(b[12]), .B(a[12]), .Z(n351) );
+  GTECH_NOT U219 ( .A(n338), .Z(n360) );
+  GTECH_MUX2 U220 ( .A(n286), .B(n378), .S(n283), .Z(n338) );
+  GTECH_MUX2 U221 ( .A(n311), .B(n379), .S(n289), .Z(n283) );
+  GTECH_NOT U222 ( .A(n309), .Z(n289) );
+  GTECH_AOI21 U223 ( .A(n380), .B(cin), .C(n375), .Z(n309) );
+  GTECH_NOR3 U224 ( .A(n328), .B(cin), .C(n334), .Z(n375) );
+  GTECH_NOT U225 ( .A(n333), .Z(n334) );
+  GTECH_AND2 U226 ( .A(b[0]), .B(a[0]), .Z(n328) );
+  GTECH_OAI21 U227 ( .A(n321), .B(n381), .C(n382), .Z(n380) );
+  GTECH_OAI21 U228 ( .A(a[3]), .B(n383), .C(b[3]), .Z(n382) );
+  GTECH_NOT U229 ( .A(a[3]), .Z(n381) );
+  GTECH_NOT U230 ( .A(n383), .Z(n321) );
+  GTECH_NAND2 U231 ( .A(n384), .B(n317), .Z(n383) );
+  GTECH_NAND2 U232 ( .A(a[2]), .B(b[2]), .Z(n317) );
+  GTECH_OAI21 U233 ( .A(a[2]), .B(b[2]), .C(n385), .Z(n384) );
+  GTECH_NOT U234 ( .A(n326), .Z(n385) );
+  GTECH_AOI21 U235 ( .A(n327), .B(n333), .C(n329), .Z(n326) );
+  GTECH_AND2 U236 ( .A(b[1]), .B(a[1]), .Z(n329) );
+  GTECH_OR2 U237 ( .A(a[0]), .B(b[0]), .Z(n333) );
+  GTECH_OR2 U238 ( .A(b[1]), .B(a[1]), .Z(n327) );
+  GTECH_OA21 U239 ( .A(a[7]), .B(n291), .C(n386), .Z(n379) );
+  GTECH_NOT U240 ( .A(n387), .Z(n386) );
+  GTECH_AOI21 U241 ( .A(n291), .B(a[7]), .C(b[7]), .Z(n387) );
+  GTECH_NAND2 U242 ( .A(n388), .B(n293), .Z(n291) );
+  GTECH_NAND2 U243 ( .A(b[6]), .B(a[6]), .Z(n293) );
+  GTECH_OAI21 U244 ( .A(a[6]), .B(b[6]), .C(n300), .Z(n388) );
+  GTECH_AND_NOT U245 ( .A(n389), .B(n303), .Z(n300) );
+  GTECH_NOR2 U246 ( .A(b[5]), .B(a[5]), .Z(n303) );
+  GTECH_NAND3 U247 ( .A(n308), .B(n307), .C(n301), .Z(n389) );
+  GTECH_NAND2 U248 ( .A(b[5]), .B(a[5]), .Z(n301) );
+  GTECH_NOT U249 ( .A(b[4]), .Z(n307) );
+  GTECH_NOT U250 ( .A(a[4]), .Z(n308) );
+  GTECH_XOR2 U251 ( .A(a[4]), .B(b[4]), .Z(n311) );
+  GTECH_OA21 U252 ( .A(a[11]), .B(n364), .C(n390), .Z(n378) );
+  GTECH_NOT U253 ( .A(n391), .Z(n390) );
+  GTECH_AOI21 U254 ( .A(n364), .B(a[11]), .C(b[11]), .Z(n391) );
+  GTECH_NAND2 U255 ( .A(n392), .B(n366), .Z(n364) );
+  GTECH_NAND2 U256 ( .A(b[10]), .B(a[10]), .Z(n366) );
+  GTECH_OAI21 U257 ( .A(a[10]), .B(b[10]), .C(n373), .Z(n392) );
+  GTECH_OAI21 U258 ( .A(n393), .B(n394), .C(n285), .Z(n373) );
+  GTECH_NAND2 U259 ( .A(b[9]), .B(a[9]), .Z(n285) );
+  GTECH_NOT U260 ( .A(n284), .Z(n394) );
+  GTECH_OR2 U261 ( .A(a[9]), .B(b[9]), .Z(n284) );
+  GTECH_AOI21 U262 ( .A(a[8]), .B(b[8]), .C(n393), .Z(n286) );
+  GTECH_NOT U263 ( .A(n282), .Z(n393) );
+  GTECH_OR2 U264 ( .A(a[8]), .B(b[8]), .Z(n282) );
+  GTECH_AOI21 U265 ( .A(n340), .B(a[15]), .C(n395), .Z(n377) );
+  GTECH_OA21 U266 ( .A(a[15]), .B(n340), .C(b[15]), .Z(n395) );
+  GTECH_NAND2 U267 ( .A(n343), .B(n396), .Z(n340) );
+  GTECH_OAI21 U268 ( .A(a[14]), .B(b[14]), .C(n349), .Z(n396) );
+  GTECH_AOI21 U269 ( .A(n350), .B(n355), .C(n352), .Z(n349) );
+  GTECH_NOR2 U270 ( .A(a[13]), .B(b[13]), .Z(n352) );
+  GTECH_NOT U271 ( .A(n359), .Z(n355) );
+  GTECH_OR2 U272 ( .A(a[12]), .B(b[12]), .Z(n359) );
+  GTECH_NAND2 U273 ( .A(a[13]), .B(b[13]), .Z(n350) );
+  GTECH_NAND2 U274 ( .A(b[14]), .B(a[14]), .Z(n343) );
+endmodule
+

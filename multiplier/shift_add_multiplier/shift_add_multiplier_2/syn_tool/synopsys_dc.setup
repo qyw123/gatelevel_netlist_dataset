@@ -1,0 +1,17 @@
+  set synthetic_library {dw_foundation.sldb}
+  set target_library {gtech.db}
+
+  set link_library "* typical_1v2c25.db dw_foundation.sldb dw01.sldb dw02.sldb \				dw03.sldb dw04.sldb dw05.sldb dw06.sldb dw07.sldb"
+  
+  set cache_write
+  set cache_read $cache_write
+  
+   set search_path "/CAD/synopsys/DC_Z-2007.03-SP2/libraries/syn\
+		/CAD/synopsys/DC_Z-2007.03-SP2/dw/syn_ver\
+		/CAD/synopsys/DC_Z-2007.03-SP2/dw/sim_ver\
+		/home/vlsi_013/Library/aci/sc-x/symbols/synopsys\
+		/home/vlsi_013/Library/aci/sc-x/synopsys\
+		/CAD/synopsys/DC_Z-2007.03-SP2/libraries\
+    " 
+
+
